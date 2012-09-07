@@ -1,4 +1,4 @@
 PeerDeviceNet_RemoteIntentActivity
 ==================================
 
-a sample activity to send remote intents
+a sample activity using intents/startActivity() to send remote intents
