@@ -13,15 +13,15 @@ The sample can be divided into three parts performing the following functions:
 
 	The sample allows choosing intent action from a drop down spinner:
  
-	* ACTION_VIEW
-	* ACTION_EDIT
-	* ACTION_CALL
-	* ACTION_DIAL
+	   * ACTION_VIEW
+	   * ACTION_EDIT
+	   * ACTION_CALL
+	   * ACTION_DIAL
 
 	It allows defining intent data uris in two ways:
 
-	* enter uri text directly into "data uri" text box
-	* pick a photo or video from gallery and use its content uri 
+	   * enter uri text directly into "data uri" text box
+	   * pick a photo or video from gallery and use its content uri 
 			
 2. Send intents to remote peers.
 
@@ -51,9 +51,9 @@ The sample can be divided into three parts performing the following functions:
 
 	   All other data related to remote intents are packed as extended data items:
 
-* "REMOTE_INTENT": the remote intent to send are packed as a Parcelable object.
-* "PEER_NAME"/"PEER_ADDR"/"PEER_PORT": optional information about destination peer device, all are packed as strings.
-* "PACKAGE_NAME": optional package name; at destination device, if no apps
+	* "REMOTE_INTENT": the remote intent to send are packed as a Parcelable object.
+	* "PEER_NAME"/"PEER_ADDR"/"PEER_PORT": optional information about destination peer device, all are packed as strings.
+	* "PACKAGE_NAME": optional package name; at destination device, if no apps
 	can handle the delivered intent, PeerDeviceNet will prompt user to install app with this name.
 	   			
 	Please note that if no destination device information is defined, PeerDeviceNet
