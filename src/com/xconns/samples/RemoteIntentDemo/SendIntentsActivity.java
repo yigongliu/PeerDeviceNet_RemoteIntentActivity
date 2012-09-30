@@ -36,34 +36,8 @@ public class SendIntentsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		Intent i = getIntent();
-		String actionStr = i.getAction();
-		Uri uri = i.getData();
-		if (actionStr.equals("com.xconns.samples.ACTION_REMOTE_CALL")) {
-			Log.d(TAG,
-					"recv remote intent1: " + actionStr + ", uri: "
-							+ uri.toString());
-			Intent i2 = new Intent(android.content.Intent.ACTION_CALL);
-			i2.setData(uri);
-			try {
-				startActivity(i2);
-			} catch (Exception e) {
-				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			}
-			finish();
-		} else if (actionStr.equals("com.xconns.samples.ACTION_REMOTE_DIAL")) {
-			Log.d(TAG,
-					"recv remote intent2: " + actionStr + ", uri: "
-							+ uri.toString());
-			Intent i2 = new Intent(android.content.Intent.ACTION_DIAL);
-			i2.setData(uri);
-			try {
-				startActivity(i2);
-			} catch (Exception e) {
-				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-			}
-			finish();
-		}
+		//process custom intents REMOTE_CALL, REMOTE_DIAL
+		processRemoteCallDial(getIntent());
 
 		action_spin = (Spinner) findViewById(R.id.action_spinner);
 		ArrayAdapter<CharSequence> action_adapter = ArrayAdapter
@@ -160,7 +134,10 @@ public class SendIntentsActivity extends Activity {
 				}
 				Log.d(TAG, "send button clicked");
 				Intent intent = new Intent();
-
+				//PeerDeviceNet cannot send ACTION_CALL or ACTION_DIAL intents
+				//directly; so we send intents with custom action names here;
+				//ar receiving device, an app with proper permission will receive
+				//these intents and translate back into system intents: ACTION_CALL/DIAL
 				if (intent_action.equals(android.content.Intent.ACTION_CALL)) {
 					intent_action = "com.xconns.samples.ACTION_REMOTE_CALL";
 				}
@@ -205,6 +182,11 @@ public class SendIntentsActivity extends Activity {
 	protected void onNewIntent(Intent i) {
 		// TODO Auto-generated method stub
 		super.onNewIntent(i);
+		processRemoteCallDial(i);
+	}
+	
+	//process custom intents REMOTE_CALL, REMOTE_DIAL
+	void processRemoteCallDial(Intent i) {
 		String actionStr = i.getAction();
 		Uri uri = i.getData();
 		if (actionStr.equals("com.xconns.samples.ACTION_REMOTE_CALL")) {
@@ -230,7 +212,6 @@ public class SendIntentsActivity extends Activity {
 			} catch (Exception e) {
 				Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
 			}
-
 		}
 	}
 

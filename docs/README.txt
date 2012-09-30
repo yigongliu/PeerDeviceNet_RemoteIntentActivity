@@ -1,7 +1,4 @@
-PeerDeviceNet_RemoteIntentActivity
-==================================
-
-This sample demonstrates how to send remote intents thru PeerDeviceNet - "intenting" API.
+This sample demonstrates how to send remote intents thru "intenting" API.
 
 The sample can be divided into three parts performing the following functions:
 	1. allow user interactively define the intents to be sent (actions, URIs)
