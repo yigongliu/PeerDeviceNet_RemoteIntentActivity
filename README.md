@@ -39,17 +39,17 @@ The sample can be divided into three parts performing the following functions:
 	2.2. "Send" button onClick() callback function collect remote intent information and 
 		send to peers
 
-		2.2.1. collect intent information from GUI widgets. 
+	2.2.1. collect intent information from GUI widgets. 
 
-		Please note the special translation of intent actions such as ACTION_CALL and ACTION_DIAL which requires system permissions. The detailed explanation are in next section.
+	   Please note the special translation of intent actions such as ACTION_CALL and ACTION_DIAL which requires system permissions. The detailed explanation are in next section.
 
-		2.2.2. create an "carrier" intent.
+	2.2.2. create an "carrier" intent.
 
-		The carrier intent is defined with 
+	   The carrier intent is defined with 
 
 		action = "com.xconns.peerdevicenet.START_REMOTE_ACTIVITY"
 
-		All other data related to remote intents are packed as extended data items:
+	   All other data related to remote intents are packed as extended data items:
 
 		* "REMOTE_INTENT": the remote intent to send are packed as a Parcelable object.
 		* "PEER_NAME"/"PEER_ADDR"/"PEER_PORT": optional information about destination peer device, all are packed as strings.
