@@ -11,25 +11,25 @@ The sample can be divided into three parts performing the following functions:
 	
 1. Define intents interactively.
 
-	The sample allows choosing intent action from a drop down spinner:
+The sample allows choosing intent action from a drop down spinner:
  
 	* ACTION_VIEW
 	* ACTION_EDIT
 	* ACTION_CALL
 	* ACTION_DIAL
 
-	It allows defining intent data uris in two ways:
+It allows defining intent data uris in two ways:
 	* enter uri text directly into "data uri" text box
 	* pick a photo or video from gallery and use its content uri 
 			
 2. Send intents to remote peers.
 
-	PeerDeviceNet provides both "intenting" and idl APIs for sending remote intents. 
+PeerDeviceNet provides both "intenting" and idl APIs for sending remote intents. 
 	Here we'll use intenting api.
 	Internally PeerDeviceNet will stream the data content pointed to by intent uri to remote
 	peers, so that it can be viewed or edited over there.
 	
-	Code changes:
+Code changes:
 	
 	2.1. add the following permission in AndroidManifest to allow sending remote intents:
 
@@ -55,7 +55,7 @@ The sample can be divided into three parts performing the following functions:
 * "PACKAGE_NAME": optional package name; at destination device, if no apps
 	can handle the delivered intent, PeerDeviceNet will prompt user to install app with this name.
 	   			
-	   Please note that if no destination device information is defined, PeerDeviceNet
+Please note that if no destination device information is defined, PeerDeviceNet
 	   		GUI will show the list of connected peer devices to allow user choose which
 	   		devices to send to.
 	   		
