@@ -13,15 +13,15 @@ The sample can be divided into three parts performing the following functions:
 
 	The sample allows choosing intent action from a drop down spinner:
  
-	   * ACTION_VIEW
-	   * ACTION_EDIT
-	   * ACTION_CALL
-	   * ACTION_DIAL
+		* ACTION_VIEW
+		* ACTION_EDIT
+		* ACTION_CALL
+		* ACTION_DIAL
 
 	It allows defining intent data uris in two ways:
 
-	   * enter uri text directly into "data uri" text box
-	   * pick a photo or video from gallery and use its content uri 
+		* enter uri text directly into "data uri" text box
+		* pick a photo or video from gallery and use its content uri 
 			
 2. Send intents to remote peers.
 
